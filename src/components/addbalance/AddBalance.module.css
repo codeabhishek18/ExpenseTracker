@@ -1,0 +1,65 @@
+.container
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255,255,255,0.77);
+    position: fixed;
+    left:0;
+    top:0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper
+{
+    background-color: 
+    rgba(239, 239, 239, 0.85);
+    height: 150px;
+    width: 400px;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.form
+{
+    display: flex;
+    column-gap: 15px;
+}
+
+.form input
+{
+    height: 40px;
+    width: 180px;
+    background-color: white;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
+    padding-left: 10px;
+}
+
+.add
+{
+    height: 40px;
+    background-color: white;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
+    background-color: rgba(244, 187, 74, 1);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.cancel
+{
+    height: 40px;
+    background-color: white;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
+    background-color: rgba(217, 217, 217, 1);
+    width: 80px;
+    cursor: pointer;
+}
