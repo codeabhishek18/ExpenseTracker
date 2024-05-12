@@ -1,0 +1,42 @@
+.transactions
+{
+    margin: 30px;
+    width: 60vw;
+    background-color: white;
+    min-height: 40vh;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.pagination
+{
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    font-size: 24px;
+    position: absolute;
+    bottom: 0;
+}
+
+.navigation
+{
+    background-color: rgba(241, 241, 241, 1);
+    height: 37px;
+    width: 37px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.page
+{
+    background-color: rgba(67, 150, 123, 1);
+    height: 37px;
+    width: 37px;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}

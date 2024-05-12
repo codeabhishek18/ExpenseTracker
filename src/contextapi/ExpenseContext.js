@@ -1,11 +1,17 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect} from "react";
 
 const ExpenseContext = createContext();
 
 const ExpenseProvider = ({children}) =>
 {
     const [expenses, setExpenses] = useState([]);
+    const [balanceHistory, setBalanceHistory] = useState([]);
     const [balance, setBalance] = useState(0);
+
+    useEffect(() =>
+    {
+        getTotalBalance();
+    },[expenses])
 
     const getExpenses = () =>
     {
@@ -48,9 +54,24 @@ const ExpenseProvider = ({children}) =>
         let total = 0;
         expenses?.forEach((expense)=>
         {
-            total += Number(expense.price);
+            total += Number(expense?.price);
         })
         return total;
+    }
+
+    const getBalanceHistory = () =>
+    {
+        const list = localStorage.getItem('BalanceHistory');
+        let balanceList = list === null ? ['5000'] : JSON.parse(list);
+        setBalanceHistory(balanceList);
+    }
+    
+    const addBalanceHistory = (newBalance) =>
+    {
+        getBalanceHistory();
+        balanceHistory.push(newBalance);
+        localStorage.setItem('BalanceHistory', JSON.stringify(balanceHistory));
+        getBalanceHistory();
     }
 
     const getBalance = () =>
@@ -62,21 +83,31 @@ const ExpenseProvider = ({children}) =>
     const addBalance = (newBalance) =>
     {
         getBalance();
-        const BalanceHistory = Number(balance) + Number(newBalance);
-        updateBalance(BalanceHistory);
+        addBalanceHistory(newBalance);
+        const transientBalance = Number(balance) + Number(newBalance);
+        updateBalance(transientBalance);
     }
 
-    const updateBalance = (updatedBalance) =>
+    const updateBalance = (transientBalance) =>
     {
-        localStorage.setItem('Balance', updatedBalance);
+        localStorage.setItem('Balance', transientBalance);
         getBalance();
+    }
+
+    const calculateBalance = () =>
+    {
+        let total=0;
+        balanceHistory?.forEach((balance) =>
+        {
+            total += Number(balance);
+        })
+        return total;
     }
 
     const getTotalBalance = () =>
     {
-        const total = balance - getTotalExpenses();
-        console.log(balance, getTotalExpenses())
-        updateBalance(total)
+        const total = calculateBalance() - getTotalExpenses();
+        updateBalance(total);
     }
 
     return(
@@ -89,6 +120,7 @@ const ExpenseProvider = ({children}) =>
             deleteExpense,
             getTotalExpenses, 
             balance, 
+            getBalanceHistory,
             setBalance,
             getBalance, 
             addBalance, 

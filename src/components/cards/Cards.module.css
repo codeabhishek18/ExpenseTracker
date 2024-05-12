@@ -1,7 +1,52 @@
 .cards
 {
-    height: 40px;
-    width: 300px;
+    height: 70px;
+    width: 95%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    font-size: 16px;
+}
+
+.right>button
+{
+    background: none;
+    border: 0;
+    padding: 0;
+    height: 37px;
+    width: 37px;
+    cursor: pointer;
+}
+
+.left, .right
+{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin: 10px;
+}
+
+.left>div>p, .right>div>p
+{
+    margin: 0;
+}
+
+.left>img
+{
+    height: 37px;
+    width: 37px;
+    margin-right: 10px;
+}
+
+.price
+{
+    font-weight: 700;
+    color: rgba(244, 187, 74, 1);
+}
+
+.date
+{
+    margin-top: 5px;
+    color:  rgba(155, 155, 155, 1);
 }

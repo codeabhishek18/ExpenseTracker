@@ -1,0 +1,39 @@
+.expenses
+{
+    background-color: rgba(155, 155, 155, 1);
+    width: 330px;
+    padding: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.expenses>h1
+{
+    margin-top: 0;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.expenses>h1>span
+{
+    color: rgba(244, 187, 74, 1)
+}
+
+.expenses>button
+{
+    background: linear-gradient(rgba(255, 149, 149, 1),rgba(255, 56, 56, 1));
+    color: white;
+    border: 0;
+    height: 40px;
+    width: 160px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 15px;
+    cursor: pointer;
+}

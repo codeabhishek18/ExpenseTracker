@@ -1,4 +1,3 @@
-import { useBalance } from '../../contextapi/BalanceContext';
 import { useExpense } from '../../contextapi/ExpenseContext';
 import styles from './AddExpenses.module.css'
 import { useState } from 'react'
@@ -18,7 +17,7 @@ const AddExpenses = ({setDisplay, type, currentId}) =>
 {
     const [newExpense, setNewExpense] = useState({id: '', title: '', price: '', category: '', date: ''})
     const {addExpense, editExpenses} = useExpense();
-
+     
     const handleChange = (e) =>
     {
         newExpense.id = type === 'Add' ? expenseId() : currentId;
@@ -38,10 +37,12 @@ const AddExpenses = ({setDisplay, type, currentId}) =>
                 editExpenses(index, newExpense);
             }
             setNewExpense({id: '', title: '', price: '', category: '', date: ''})
-            return;
         }
-        addExpense(newExpense);
-        setNewExpense({id: '', title: '', price: '', category: '', date: ''})
+        else
+        {
+            addExpense(newExpense);
+            setNewExpense({id: '', title: '', price: '', category: '', date: ''})
+        }
     }
 
     return(

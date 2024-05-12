@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react';
 import AddBalance from '../addbalance/AddBalance';
 import { useExpense } from '../../contextapi/ExpenseContext';
+import styles from './Wallet.module.css'
 
 const Wallet = () =>
 {
     const [showBalance, setShowBalance] = useState(false);
-    const {balance, addBalance, getBalance} = useExpense();
+    const {getBalance, balance, getBalanceHistory} = useExpense();
 
-    useEffect(() =>
+    useEffect(()=>
     {
-        const onLoadBalance = localStorage.getItem('Balance')
-        if(!onLoadBalance)
-            addBalance(5000);
         getBalance();
+        getBalanceHistory();
     },[])
 
     return(
-        <div>
-            <h1>Wallet Balance : {balance}</h1>
-            <button onClick={()=>setShowBalance(true)}>+ Add Income</button>
+        <div className={styles.wallet}>
+            <h1>Wallet Balance : <span>₹ {balance}</span></h1>
+            <button onClick={() => setShowBalance(true)}>+   Add Income</button>
             {showBalance && <AddBalance setShowBalance={setShowBalance}/>}
         </div>
     )

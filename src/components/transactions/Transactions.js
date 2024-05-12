@@ -1,22 +1,54 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useExpense } from "../../contextapi/ExpenseContext";
 import Cards from "../cards/Cards";
+import styles from './Transactions.module.css'
+import left from '../../assets/left.png'
+import right from '../../assets/right.png'
 
 const Transactions = () =>
 {
     const {expenses, getExpenses} = useExpense();
+    const cardsperpage = 3;
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const lastCard = currentPage * cardsperpage;
+    const firstCard = lastCard - cardsperpage;
+    const totalPages = Math.ceil(expenses.length/3);
+    const cardData = expenses.slice(firstCard,lastCard)
 
     useEffect(() =>
     {
         getExpenses();
     },[])
 
+    useEffect(()=>
+    {
+        setCurrentPage(totalPages);
+    },[expenses])
+
+    const handlePrev = () =>
+    {
+        setCurrentPage((prev) => prev === 1 ? 1 : prev-1);
+    }
+
+    const handleNext = () =>
+    {
+        setCurrentPage((prev) => prev === totalPages ? totalPages : prev+1);
+    }
+
     return(
-        <div>
-            {expenses?.map((expense) =>
+        <div className={styles.transactions}>
+            {cardData?.map((expense) =>
             (
-                <Cards expense={expense} key={expense.id}/>
+                <Cards expense={expense} key={expense?.id}/>
             ))}
+            {expenses.length > cardsperpage &&
+                <div className={styles.pagination}>
+                <button className={styles.navigation} onClick={handlePrev}><img src={left} alt='Navigation'/></button>
+                <p className={styles.page}>{currentPage}</p>
+                <button className={styles.navigation} onClick={handleNext}><img src={right} alt='Navigation'/></button>
+            </div>
+            }
         </div>
     )
 }
