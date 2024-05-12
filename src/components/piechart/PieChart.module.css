@@ -1,0 +1,11 @@
+.pieChart
+{
+    width: 330px;
+    padding: 10px;
+    padding-bottom: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

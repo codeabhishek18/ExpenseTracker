@@ -1,10 +1,10 @@
 .wallet
 {
     background-color: rgba(155, 155, 155, 1);
-    width: 330px;
+    width: 360px;
     padding: 10px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;

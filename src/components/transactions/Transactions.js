@@ -10,6 +10,9 @@ const Transactions = () =>
     const {expenses, getExpenses} = useExpense();
     const cardsperpage = 3;
     const [currentPage, setCurrentPage] = useState(1);
+    const entertainment = [];
+    const food = [];
+    const travel = [];
 
     const lastCard = currentPage * cardsperpage;
     const firstCard = lastCard - cardsperpage;
@@ -24,7 +27,31 @@ const Transactions = () =>
     useEffect(()=>
     {
         setCurrentPage(totalPages);
+        manageData();
     },[expenses])
+
+    const manageData = () =>
+    {
+        expenses.forEach((expense) => 
+        {
+            if(expense.category === 'Entertainment')
+            {
+                entertainment.push(expense);
+            }
+            else if(expense.category === 'Food')
+            {
+                food.push(expense);
+            } 
+            else
+            {
+                travel.push(expense)
+            }
+        });
+
+        localStorage.setItem('Entertainment', JSON.stringify(entertainment));
+        localStorage.setItem('Food',  JSON.stringify(food));
+        localStorage.setItem('Travel',  JSON.stringify(travel));
+    }
 
     const handlePrev = () =>
     {
@@ -37,7 +64,9 @@ const Transactions = () =>
     }
 
     return(
-        <div className={styles.transactions}>
+        <div className={styles.wrapper}>
+            {cardData.length ? 
+            <div className={styles.transactions}>
             {cardData?.map((expense) =>
             (
                 <Cards expense={expense} key={expense?.id}/>
@@ -48,6 +77,12 @@ const Transactions = () =>
                 <p className={styles.page}>{currentPage}</p>
                 <button className={styles.navigation} onClick={handleNext}><img src={right} alt='Navigation'/></button>
             </div>
+            }
+            </div> 
+            
+            :
+            
+            <h3 className={styles.notransactions}>No Recent Transactions</h3>
             }
         </div>
     )

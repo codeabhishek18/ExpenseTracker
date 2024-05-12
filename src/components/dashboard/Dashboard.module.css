@@ -7,27 +7,34 @@
 
 .dashboard>h1
 {
+    margin-top: 0;
     color: white;
-    margin-left: 30px;
     font-size: 32px;
     font-weight: 600;
 }
 
 .upper
 {
-    margin: 30px;
+    
     display: flex;
+    justify-content: space-evenly;
     column-gap: 30px;
     background-color: rgba(98, 98, 98, 1);
     border-radius: 10px;
-    padding: 50px;
+    padding: 40px;
 }
 
-.dashboard>h2
+.transactions>h2, .bargraph>h2
 {
     color: white;
-    margin: 30px;
     font-size: 28px;
     font-style: italic;
     font-weight: 600;
+}
+
+.lower
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

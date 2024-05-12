@@ -43,6 +43,7 @@ const AddExpenses = ({setDisplay, type, currentId}) =>
             addExpense(newExpense);
             setNewExpense({id: '', title: '', price: '', category: '', date: ''})
         }
+        setDisplay(false);
     }
 
     return(

@@ -44,8 +44,8 @@ const ExpenseProvider = ({children}) =>
     {
         getExpenses();
         const index = expenses.findIndex(item => item.id === id);
-        if(index !== -1)
-            expenses.pop(expenses[index]);
+        if(index > -1)
+            expenses.splice(index,1);
         updateExpenses(expenses)
     }
 

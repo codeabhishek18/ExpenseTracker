@@ -12,6 +12,7 @@ const AddBalance = ({setShowBalance}) =>
         e.preventDefault();
         addBalance(newBalance);
         setNewBalance('');
+        setShowBalance(false);
     }
 
     return(
