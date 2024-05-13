@@ -16,7 +16,7 @@ const Wallet = () =>
 
     return(
         <div className={styles.wallet}>
-            <h1>Wallet Balance : <span>₹ {balance}</span></h1>
+            <h1>Wallet Balance : <p>₹ {balance}</p></h1>
             <button onClick={() => setShowBalance(true)}>+   Add Income</button>
             {showBalance && <AddBalance setShowBalance={setShowBalance}/>}
         </div>

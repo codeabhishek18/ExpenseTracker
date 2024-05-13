@@ -1,3 +1,4 @@
+import { enqueueSnackbar } from 'notistack';
 import { useExpense } from '../../contextapi/ExpenseContext';
 import styles from './AddBalance.module.css'
 import { useState } from 'react'
@@ -13,6 +14,7 @@ const AddBalance = ({setShowBalance}) =>
         addBalance(newBalance);
         setNewBalance('');
         setShowBalance(false);
+        enqueueSnackbar('Balance Updated', {variant:'success'});
     }
 
     return(

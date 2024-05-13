@@ -32,15 +32,14 @@ const renderCustomizedLabel = ({
 
 export default function PieCharts({data}) {
   return (
-    <PieChart width={340} height={150}  className={styles.pieChart}>
-      <Pie
+    <PieChart width={300} height={200} className={styles.pieChart}>
+        <Pie
         data={data}
         cx={150}
-        cy={70}
+        cy={90}
         labelLine={false}
         label={renderCustomizedLabel}
-        outerRadius={70}
-        fill="#8884d8"
+        outerRadius={90}
         dataKey="value"
       >
         {data.map((entry, index) => (
@@ -48,7 +47,8 @@ export default function PieCharts({data}) {
         ))}
       </Pie>
       <Tooltip />
-      <Legend />
+      <Legend verticalAlign="bottom" margin={{ top: 20, bottom: 20, left: 0, right: 20 }}/>
     </PieChart>
   );
 }
+

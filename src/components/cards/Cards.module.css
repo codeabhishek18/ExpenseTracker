@@ -50,3 +50,16 @@
     margin-top: 5px;
     color:  rgba(155, 155, 155, 1);
 }
+
+@media screen and (max-width:466px) 
+{
+    .cards
+    {
+        height: 130px;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid grey;
+        font-size: 16px;
+        padding-bottom: 10px;
+    }
+}

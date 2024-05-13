@@ -2,14 +2,16 @@
 {
     background-color: rgba(155, 155, 155, 1);
     width: 360px;
-    padding: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    min-height: 130px;
+    padding: 20px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 40px;
+    margin-right:0;
+    margin-left: 0;
 }
 
 .wallet>h1
@@ -18,11 +20,13 @@
     color: white;;
     font-size: 30px;
     font-weight: 500;
+    text-align: center;
 }
 
-.wallet>h1>span
+.wallet>h1>p
 {
-    color: rgba(157, 255, 91, 1) !important;
+    color: rgba(157, 255, 91, 1);
+    margin: 0;
 }
 
 .wallet>button
@@ -33,7 +37,28 @@
     height: 40px;
     width: 160px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     border-radius: 15px;
     cursor: pointer;
+}
+
+@media screen and (max-width:1080px) 
+{
+    .wallet
+    {
+       margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width:540px) 
+{
+    .wallet
+    {
+        width: 60vw;
+    }
+
+    .wallet>h1
+    {
+        font-size: 24px;
+    }
 }

@@ -15,7 +15,7 @@ const Expenses = () =>
 
     return(
         <div className={styles.expenses}>
-            <h1>Expenses : <span>₹ {getTotalExpenses()}</span></h1>
+            <h1>Expenses : <p>₹ {getTotalExpenses()}</p></h1>
             <button onClick={()=>setDisplay(true)}>+ Add Expense</button>
             {display && <AddExpenses setDisplay={setDisplay} type="Add"/>}
         </div>

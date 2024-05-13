@@ -1,6 +1,7 @@
 import { useExpense } from '../../contextapi/ExpenseContext';
 import styles from './AddExpenses.module.css'
 import { useState } from 'react'
+import { enqueueSnackbar } from 'notistack'
 
 const expenseId = () =>
 {
@@ -16,7 +17,7 @@ const expenseId = () =>
 const AddExpenses = ({setDisplay, type, currentId}) =>
 {
     const [newExpense, setNewExpense] = useState({id: '', title: '', price: '', category: '', date: ''})
-    const {addExpense, editExpenses} = useExpense();
+    const {expenses, balance, addExpense, editExpenses} = useExpense();
      
     const handleChange = (e) =>
     {
@@ -28,20 +29,35 @@ const AddExpenses = ({setDisplay, type, currentId}) =>
     const handleSubmit = (e) =>
     {
         e.preventDefault();
+        
         if(type === 'Edit')
         {
             const selectedItem = JSON.parse(localStorage.getItem('AllExpenses'));
             const index = selectedItem.findIndex(item => item.id === currentId);
+            const pendingExpense = expenses[index];
+
             if(index !== -1)
             {
+                if(newExpense.price - pendingExpense.price > Number(balance))
+                {
+                    return enqueueSnackbar('Insufficient balance. Top up your wallet', {variant:'warning'})
+                }
                 editExpenses(index, newExpense);
             }
             setNewExpense({id: '', title: '', price: '', category: '', date: ''})
+            enqueueSnackbar('Expense Updated', {variant:'success'});
         }
         else
         {
+            if(Number(newExpense.price) > Number(balance))
+            {
+                enqueueSnackbar('Insufficient balance. Top up your wallet', {variant:'warning'})
+                return;
+            }
+
             addExpense(newExpense);
             setNewExpense({id: '', title: '', price: '', category: '', date: ''})
+            enqueueSnackbar('Expense Added', {variant:'success'});
         }
         setDisplay(false);
     }
@@ -76,7 +92,7 @@ const AddExpenses = ({setDisplay, type, currentId}) =>
                         name="date"      
                         value={newExpense.date} 
                         onChange={handleChange} 
-                        placeholder='dd/mm/yy'
+                        placeholder='dd/mm/yyyy'
                     />
 
                     <button 

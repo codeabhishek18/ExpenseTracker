@@ -71,13 +71,12 @@ const Transactions = () =>
             (
                 <Cards expense={expense} key={expense?.id}/>
             ))}
-            {expenses.length > cardsperpage &&
-                <div className={styles.pagination}>
+            <div className={styles.pagination}>
                 <button className={styles.navigation} onClick={handlePrev}><img src={left} alt='Navigation'/></button>
                 <p className={styles.page}>{currentPage}</p>
                 <button className={styles.navigation} onClick={handleNext}><img src={right} alt='Navigation'/></button>
             </div>
-            }
+            
             </div> 
             
             :

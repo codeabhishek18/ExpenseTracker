@@ -1,6 +1,28 @@
 .barchart
 {
+    width: 30vw;
+    height: 240px;
     background-color: white;
     padding: 30px;
     border-radius: 15px;
 }
+
+@media screen and (max-width:1080px) 
+{
+    .barchart
+    {
+        width: 35vw;
+        padding-left: 0;
+    }
+}
+
+@media screen and (max-width:950px) 
+{
+    .barchart
+    {
+        width: calc(90vw - 30px);
+    }  
+}
+
+
+

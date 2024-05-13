@@ -2,7 +2,7 @@
 {
     width: 50vw;
     background-color: white;
-    min-height: 40vh;
+    height: 300px;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -55,4 +55,28 @@
     font-size: 32px;
     font-style: italic;
     text-align: center;
+}
+
+@media screen and (max-width:1080px) 
+{
+    .wrapper
+    {
+        width: 45vw;
+    }
+}
+
+@media screen and (max-width:950px) 
+{
+    .wrapper
+    {
+        width: 90vw;
+    }  
+}
+
+@media screen and (max-width:466px) 
+{
+    .wrapper
+    {
+        height: 510px;
+    }
 }

@@ -2,14 +2,15 @@
 {
     background-color: rgba(155, 155, 155, 1);
     width: 360px;
-    padding: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    min-height: 130px;
+    padding: 20px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .expenses>h1
@@ -18,11 +19,13 @@
     color: white;
     font-size: 30px;
     font-weight: 500;
+    text-align: center;
 }
 
-.expenses>h1>span
+.expenses>h1>p
 {
-    color: rgba(244, 187, 74, 1)
+    color: rgba(244, 187, 74, 1);
+    margin: 0;
 }
 
 .expenses>button
@@ -33,7 +36,21 @@
     height: 40px;
     width: 160px;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     border-radius: 15px;
     cursor: pointer;
 }
+
+@media screen and (max-width:540px) 
+{
+    .expenses
+    {
+        width: 60vw;
+    }
+
+    .expenses>h1
+    {
+        font-size: 24px;
+    }
+}
+
