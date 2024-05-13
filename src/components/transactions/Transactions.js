@@ -16,7 +16,7 @@ const Transactions = () =>
 
     const lastCard = currentPage * cardsperpage;
     const firstCard = lastCard - cardsperpage;
-    const totalPages = Math.ceil(expenses.length/3);
+    const totalPages = Math.ceil(expenses?.length/3);
     const cardData = expenses.slice(firstCard,lastCard)
 
     useEffect(() =>
