@@ -26,7 +26,7 @@ export const dateFormat = (inputDate) =>
     const dd = inputDate.slice(0,2);
     const mm = inputDate.slice(3,5);
     const yyyy = inputDate.substr(6,10);
-    const month = months[Number(mm)];
+    const month = months[Number(mm) - 1];
     return month +' ' +dd +', ' +yyyy;
 }
 
