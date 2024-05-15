@@ -23,7 +23,7 @@
     text-align: center;
 }
 
-.wallet>h1>p
+.wallet>h1>span
 {
     color: rgba(157, 255, 91, 1);
     margin: 0;
