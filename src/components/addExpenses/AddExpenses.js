@@ -73,26 +73,36 @@ const AddExpenses = ({setDisplay, type, currentId}) =>
                         value={newExpense.title} 
                         onChange={handleChange} 
                         placeholder='Title'
+                        required
                     />
                     <input 
                         name="price"     
                         value={newExpense.price} 
                         onChange={handleChange} 
                         placeholder='Price'
+                        required
                     />
 
-                    <input 
+                    {/* <input 
                         name="category"  
                         value={newExpense.category} 
                         onChange={handleChange} 
                         placeholder='Select Category'
-                    />
+                    /> */}
+
+                    <select name="category" onChange={handleChange} required>
+                        <option value="">Select Category</option>
+                        <option value="Food">Food</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Entertainment">Entertainment</option>
+                    </select>
 
                     <input 
                         name="date"      
                         value={newExpense.date} 
                         onChange={handleChange} 
                         placeholder='dd/mm/yyyy'
+                        required
                     />
 
                     <button 
