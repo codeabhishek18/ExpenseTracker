@@ -65,7 +65,7 @@ const Transactions = () =>
 
     return(
         <div className={styles.wrapper}>
-            {cardData ? 
+            {cardData.length ? 
             <div className={styles.transactions}>
             {cardData?.map((expense) =>
             (
