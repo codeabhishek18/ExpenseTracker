@@ -7,7 +7,7 @@ import right from '../../assets/right.png'
 
 const Transactions = () =>
 {
-    const {expenses, getExpenses} = useExpense();
+    const {expenses=[], getExpenses} = useExpense();
     const cardsperpage = 3;
     const [currentPage, setCurrentPage] = useState(1);
     const entertainment = [];
@@ -17,7 +17,7 @@ const Transactions = () =>
     const lastCard = currentPage * cardsperpage;
     const firstCard = lastCard - cardsperpage;
     const totalPages = Math.ceil(expenses?.length/3);
-    const cardData = expenses.slice(firstCard,lastCard)
+    const cardData = expenses?.slice(firstCard,lastCard)
 
     useEffect(() =>
     {
@@ -32,7 +32,7 @@ const Transactions = () =>
 
     const manageData = () =>
     {
-        expenses.forEach((expense) => 
+        expenses?.forEach((expense) => 
         {
             if(expense.category === 'Entertainment')
             {
