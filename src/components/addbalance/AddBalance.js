@@ -26,7 +26,8 @@ const AddBalance = ({setShowBalance}) =>
                     <input
                     value={newBalance}
                     onChange={(e)=> setNewBalance(e.target.value)}
-                    placeholder='Income Amount'/>
+                    placeholder='Income Amount'
+                    required/>
 
                     <button 
                     className={styles.add}>
