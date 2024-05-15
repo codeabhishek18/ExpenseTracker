@@ -22,7 +22,7 @@
     text-align: center;
 }
 
-.expenses>h1>p
+.expenses>h1>span
 {
     color: rgba(244, 187, 74, 1);
     margin: 0;

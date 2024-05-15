@@ -1,7 +1,7 @@
 .wallet
 {
     background-color: rgba(155, 155, 155, 1);
-    width: 360px;
+    width: 380px;
     min-height: 130px;
     padding: 20px;
     border-radius: 15px;
@@ -23,7 +23,7 @@
     text-align: center;
 }
 
-.wallet>h1>p
+.wallet>h1>span
 {
     color: rgba(157, 255, 91, 1);
     margin: 0;
