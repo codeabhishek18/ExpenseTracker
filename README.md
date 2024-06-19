@@ -21,7 +21,7 @@ Localstorage for data persistance.
 * ManageData contextAPI
 Expense object have category namely Entertainment, Food, Travel.
 Category arrays for seperation of data, which is calculated and updated onchange of expense list.
-Calculated category arrays are fed as array of objects for Pie chart and Bar chart.
+Calculated category arrays are fed as array of objects to Pie chart and Bar chart.
 
 1. Dashboard 
    Home and only page, includes two sections.

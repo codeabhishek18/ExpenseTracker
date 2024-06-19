@@ -83,13 +83,6 @@ const AddExpenses = ({setDisplay, type, currentId}) =>
                         required
                     />
 
-                    {/* <input 
-                        name="category"  
-                        value={newExpense.category} 
-                        onChange={handleChange} 
-                        placeholder='Select Category'
-                    /> */}
-
                     <select name="category" onChange={handleChange} required>
                         <option value="">Select Category</option>
                         <option value="Food">Food</option>

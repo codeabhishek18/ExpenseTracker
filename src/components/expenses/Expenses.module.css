@@ -1,21 +1,19 @@
 .expenses
 {
     background-color: rgba(155, 155, 155, 1);
-    width: 360px;
-    min-height: 130px;
+    width: 35%;
     padding: 20px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
-    margin-bottom: 40px;
 }
 
 .expenses>h1
 {
     margin-top: 0;
+    margin-bottom: 30px;
     color: white;
     font-size: 30px;
     font-weight: 500;
@@ -41,16 +39,33 @@
     cursor: pointer;
 }
 
-@media screen and (max-width:540px) 
+@media screen and (max-width:1320px) 
 {
     .expenses
     {
-        width: 60vw;
+       width: 50%;
+    }
+}
+
+@media screen and (max-width:780px) 
+{
+    .expenses
+    {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width:620px) 
+{
+    .expenses
+    {
+        width: 100%;
     }
 
     .expenses>h1
     {
         font-size: 24px;
+        line-height: 35px;
     }
 }
 

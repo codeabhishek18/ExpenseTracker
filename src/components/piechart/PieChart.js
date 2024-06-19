@@ -32,7 +32,7 @@ const renderCustomizedLabel = ({
 
 export default function PieCharts({data}) {
   return (
-    <PieChart width={300} height={200} className={styles.pieChart}>
+    <PieChart width={279} height={200} className={styles.pieChart}>
         <Pie
         data={data}
         cx={150}
@@ -47,7 +47,7 @@ export default function PieCharts({data}) {
         ))}
       </Pie>
       <Tooltip />
-      <Legend verticalAlign="bottom" margin={{ top: 20, bottom: 20, left: 0, right: 20 }}/>
+      <Legend verticalAlign="bottom" horizontalAlign="right" width={279} wrapperStyle={{ textAlign: 'center', margin: 'auto' }}/>
     </PieChart>
   );
 }
